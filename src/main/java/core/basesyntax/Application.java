@@ -1,15 +1,17 @@
 package core.basesyntax;
 
-public class Application {
-    public static void main(String[] args) {
-        // create three balls using class Lottery and print information about them in console
-        Ball[] balls = new Ball[] {
-                Lottery.getRandomBall(),
-                Lottery.getRandomBall(),
-                Lottery.getRandomBall()};
+import java.util.Random;
 
-        for (Ball ball : balls) {
-            System.out.println(ball);
+public class Application {
+
+    public static void main(String[] args) {
+        Ball[] balls = new Ball[3];
+        Lottery lottery = new Lottery();
+        Random random = new Random();
+
+        for (int i = 0; i < balls.length; i++) {
+            balls[i] = lottery.getRandomBall(random);
+            System.out.println(balls[i]);
         }
     }
 }
